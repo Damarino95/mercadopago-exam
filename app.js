@@ -39,8 +39,27 @@ mercadopago.configure({
 
 app.post('/webhook', function (req, res) {
     res.send('OK');
-    console.log(req.body);
+    console.log(req.queryString);
 });
+
+const http = require('http');
+
+http.createServer((request, response) => {
+    if (request.method === 'POST' && request.url === '/webhook') {
+      let body = [];
+      request.on('data', (chunk) => {
+        body.push(chunk);
+      }).on('end', () => {
+        body = Buffer.concat(body).toString();
+        response.end(body);
+        console.log(body);
+      });
+    } else {
+      response.statusCode = 404;
+      response.end();
+    }
+  }).listen(8080);
+
 
 app.get('/pagar', function(req, res){
     
