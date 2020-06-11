@@ -87,8 +87,8 @@ app.get('/pagar', function(req, res){
         },
         back_urls: {
             success: 'https://mercadopago-exam.herokuapp.com/approved',
-            failure: 'https://mercadopago-exam.herokuapp.com//rejected',
-            pending: 'https://mercadopago-exam.herokuapp.com//pending'
+            failure: 'https://mercadopago-exam.herokuapp.com/rejected',
+            pending: 'https://mercadopago-exam.herokuapp.com/pending'
         },
         notification_url: 'https://mercadopago-exam.herokuapp.com/webhook',
         external_reference: "damian.marino95@gmail.com",
