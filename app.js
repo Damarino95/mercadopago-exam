@@ -39,7 +39,7 @@ mercadopago.configure({
 
 app.post('/webhook', function (req, res) {
     res.send('OK');
-    console.log(req.query);
+    console.log(req.body);
 });
 
 app.get('/pagar', function(req, res){
