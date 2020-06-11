@@ -37,8 +37,9 @@ mercadopago.configure({
 });
  
 
-app.post('/hola', function (req, res) {
+app.post('/webhook', function (req, res) {
     res.send('OK');
+    console.log(req.query);
 });
 
 app.get('/pagar', function(req, res){
@@ -85,10 +86,11 @@ app.get('/pagar', function(req, res){
             
         },
         back_urls: {
-            success: 'http://localhost:3000/approved',
-            failure: 'http://localhost:3000/rejected',
-            pending: 'http://localhost:3000/pending'
+            success: 'https://mercadopago-exam.herokuapp.com/approved',
+            failure: 'https://mercadopago-exam.herokuapp.com//rejected',
+            pending: 'https://mercadopago-exam.herokuapp.com//pending'
         },
+        notification_url: 'https://mercadopago-exam.herokuapp.com/webhook',
         external_reference: "damian.marino95@gmail.com",
         auto_return: 'approved'
     };
