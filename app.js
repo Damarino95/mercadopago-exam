@@ -91,7 +91,6 @@ app.get('/pagar', function(req, res){
             failure: 'http://localhost:3000/rejected',
             pending: 'http://localhost:3000/pending'
         },
-        notification_url: 'https://webhook.free.beeceptor.com',
         external_reference: "damian.marino95@gmail.com",
         auto_return: 'approved'
     };

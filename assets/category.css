@@ -33,14 +33,10 @@
 
 
 .container {
-  position: relative;;
-}
-h1 {
-  text-align: center;
-}
-
-a {
-  text-align: center;
+  display:flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .pd-l-plate::before, .pd-l-plate::after {
