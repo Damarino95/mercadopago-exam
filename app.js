@@ -37,15 +37,10 @@ mercadopago.configure({
 });
  
 
-app.post('/webhook', function (req, res) {
-    res.send('OK');
-    console.log(req.queryString);
-});
-
 const http = require('http');
 
 http.createServer((request, response) => {
-    if (request.method === 'POST' && request.url === '/webhook') {
+    if (request.method === 'POST' && request.url === 'https://mercadopago-exam.herokuapp.com/webhook') {
       let body = [];
       request.on('data', (chunk) => {
         body.push(chunk);
