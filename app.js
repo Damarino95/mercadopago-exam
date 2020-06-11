@@ -36,24 +36,20 @@ mercadopago.configure({
     access_token: 'APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398'
 });
  
+const bodyParser = require('body-parser')
 
-const http = require('http');
+app.use(bodyParser.urlencoded({
+  extended: true
+}))
 
-http.createServer((request, response) => {
-    if (request.method === 'POST' && request.url === 'https://mercadopago-exam.herokuapp.com/webhook') {
-      let body = [];
-      request.on('data', (chunk) => {
-        body.push(chunk);
-      }).on('end', () => {
-        body = Buffer.concat(body).toString();
-        response.end(body);
-        console.log(body);
-      });
-    } else {
-      response.statusCode = 404;
-      response.end();
-    }
-  }).listen(8080);
+app.use(bodyParser.json())
+
+app.post('/webhook', function (req, res) {
+    res.send('OK');
+    console.log(req.body);
+});
+
+
 
 
 app.get('/pagar', function(req, res){
