@@ -3,7 +3,6 @@ var exphbs  = require('express-handlebars');
 var mercadopago = require("mercadopago");
  
 var app = express();
-const port = process.env.PORT || 3000
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
@@ -39,8 +38,7 @@ mercadopago.configure({
  
 
 app.post('/hola', function (req, res) {
-    res.send('[POST]Saludos desde express');
-    console.log(req.query);
+    res.send('OK');
 });
 
 app.get('/pagar', function(req, res){
@@ -104,6 +102,7 @@ app.get('/pagar', function(req, res){
 });
 
 
-app.listen(port, () => {
-    console.log('Server is up on port ' + port)
-  })
+var server = app.listen(process.env.PORT || 5000, function () {
+    var port = server.address().port;
+    console.log("Express is working on port " + port);
+  });
