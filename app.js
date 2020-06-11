@@ -51,7 +51,7 @@ app.get('/pagar', function(req, res){
                 id: '1234',
                 title: req.query.title,
                 description: 'Dispositivo móvil de Tienda e-commerce',
-                picture_url: req.query.img,
+                picture_url: 'https://mercadopago-exam.herokuapp.com' + req.query.img,
                 quantity: Number(req.query.unit),
                 currency_id: 'ARS',
                 unit_price: Number(req.query.price)
